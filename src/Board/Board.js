@@ -9,15 +9,50 @@ import './Board.css';
  * 2. The other boards will return to their usual color (blue).
  */
 
+// class Board extends Component {
+// 	constructor(props) {
+// 		super(props);
+// 		this.state = { BoardBorderColor: 'Board-option' };
+// 		this.handleBoardColorChange = this.handleBoardColorChange.bind(this);
+// 	}
+// 	handleBoardColorChange() {
+// 		this.state.BoardBorderColor === 'Board-option' ? this.setState({ BoardBorderColor: 'Board-selected' }) : this.setState({ BoardBorderColor: 'Board-option' });
+// 	}
+// 	render() {
+// 		return (
+// 			<div className="Board">
+// 				<h1>Choose board:</h1>
+// 				<div className="boards">
+// 					<div className={this.state.BoardBorderColor} onClick={this.handleBoardColorChange}>1</div>
+// 					<div className={this.state.BoardBorderColor} onClick={this.handleBoardColorChange}>2</div>
+// 					<div className={this.state.BoardBorderColor} onClick={this.handleBoardColorChange}>3</div>
+// 				</div>
+// 			</div>
+// 		);
+// 	}
+// }
+
 class Board extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			BoardBorderColor: 'Board-option'
+		}
+	}
+	handleClick() {
+		this.setClassName();
+	}
+	setClassName() {
+
+	}
 	render() {
 		return (
 			<div className="Board">
 				<h1>Choose board:</h1>
 				<div className="boards">
-					<div className="Board-option">1</div>
-					<div className="Board-option">2</div>
-					<div className="Board-option">3</div>
+					<div className='Board-option'> 1 </div>
+					<div className='Board-option'> 2 </div>
+					<div className='Board-option'> 3 </div>
 				</div>
 			</div>
 		);
