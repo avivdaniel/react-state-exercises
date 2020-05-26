@@ -21,7 +21,7 @@ class Car extends Component {
 			<div>
 				<h1>Choose a color for your car:</h1>
 				<select onChange={this.handleOnChange}>
-					<option value="silver"> silver</option>
+					<option value="silver" selected> silver</option>
 					<option value="red"> red</option>
 					<option value="blue" >blue</option>
 					<option value="yellow"> yellow</option>
