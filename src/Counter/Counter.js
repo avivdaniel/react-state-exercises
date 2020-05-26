@@ -8,24 +8,28 @@ import React, { Component } from 'react';
  */
 
 class Counter extends Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
 			num: 0
 		};
 	}
-
 	increase() {
-		this.setState({
-			num: this.state.num + 1
-		});
+		if (this.state.num < 20) {
+			this.setState({ num: this.state.num + 1 });
+		}
 	}
-
 	decrease() {
-		this.setState({
-			num: this.state.num - 1
-		});
+		if (this.state.num > 0) {
+			this.setState({ num: this.state.num - 1 });
+		}
+	}
+	increaseBy10() {
+		if (this.state.num <= 10) {
+			this.setState({ num: this.state.num + 10 });
+		} else {
+			this.setState({ num: this.state.num = 20 });
+		}
 	}
 
 	render() {
@@ -34,6 +38,7 @@ class Counter extends Component {
 				<h1>Counter: </h1>
 				<button onClick={this.increase.bind(this)}>Increase</button>
 				<button onClick={this.decrease.bind(this)}>Decrease</button>
+				<button onClick={this.increaseBy10.bind(this)}>increaseBy10</button>
 				<span>{this.state.num}</span>
 			</div>
 		);
