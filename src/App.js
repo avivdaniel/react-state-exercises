@@ -7,24 +7,6 @@ import Counter from './Counter/Counter';
 import Car from './Car/Car';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      time: new Date().toLocaleTimeString(),
-      carColor: ''
-    };
-    this.changeCarColor = this.changeCarColor.bind(this);
-    this.changeSecond = this.changeSecond.bind(this);
-  }
-  changeCarColor(newColor) {
-    this.setState({ carColor: newColor });
-  }
-  changeSecond() {
-    this.setState({ time: new Date().toLocaleTimeString() });
-  }
-  componentWillMount() {
-    setInterval(this.changeSecond, 1000);
-  }
   render() {
     return (
       <div className="App" >
@@ -32,7 +14,7 @@ class App extends Component {
 
         <hr />
 
-        <Clock time={this.state.time} />
+        <Clock />
 
         <hr />
 
@@ -44,7 +26,7 @@ class App extends Component {
 
         <hr />
 
-        <Car onChange={this.changeCarColor} carColor={this.state.carColor} />
+        <Car />
 
         <hr />
       </div>

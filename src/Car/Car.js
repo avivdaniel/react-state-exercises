@@ -10,11 +10,18 @@ import './Car.css';
 class Car extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			carColor: 'silver'
+		}
 		this.handleOnChange = this.handleOnChange.bind(this);
+		this.changeCarColor = this.changeCarColor.bind(this);
 	}
 	handleOnChange(event) {
 		const color = event.target.value;
-		this.props.onChange(color);
+		this.changeCarColor(color);
+	}
+	changeCarColor(newColor) {
+		this.setState({ carColor: newColor });
 	}
 	render() {
 		return (
@@ -29,7 +36,7 @@ class Car extends Component {
 				</select>
 				<br />
 				<br />
-				<div className="Car-color" style={{ background: this.props.carColor }} >Color example</div>
+				<div className="Car-color" style={{ background: this.state.carColor }} >Color example</div>
 			</div>
 		);
 	}
