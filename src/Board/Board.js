@@ -17,19 +17,31 @@ class Board extends Component {
 			isRed: [false, false, false]
 		}
 		this.handleClick = this.handleClick.bind(this);
+		this.ChangeColorClass = this.ChangeColorClass.bind(this);
 	}
-	handleClick(index) {
-		// console.log(index);
-		// this.setState({ isRed: [...this.state.isRed, true] });
+	handleClick(e) {
+		const index = parseInt(e.target.innerHTML) - 1;
+		let { isRed } = this.state;
+		isRed = isRed.map(option => {
+			return option = false;
+		})
+		isRed[index] = !isRed[index];
+		this.setState({ isRed: [...isRed] });
+	}
+	ChangeColorClass(index) {
+		const color = !this.state.isRed[index] ? 'Board-option' : 'Board-selected';
+		return color;
+
 	}
 	render() {
 		return (
 			<div className="Board">
 				<h1>Choose board:</h1>
 				<div className="boards">
-					<div className='Board-option' onClick={this.handleClick(0)}> 1 </div>
-					<div className='Board-option' onClick={this.handleClick(1)}> 2 </div>
-					<div className='Board-option' onClick={this.handleClick(2)}> 3 </div>
+
+					<div className={this.ChangeColorClass(0)} onClick={e => this.handleClick(e)}> 1 </div>
+					<div className={this.ChangeColorClass(1)} onClick={e => this.handleClick(e)}> 2 </div>
+					<div className={this.ChangeColorClass(2)} onClick={e => this.handleClick(e)}> 3 </div>
 				</div>
 			</div>
 		);
